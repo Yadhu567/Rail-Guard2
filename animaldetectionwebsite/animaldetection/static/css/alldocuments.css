@@ -1,0 +1,55 @@
+
+body {
+    font-family: cursive;
+    background: linear-gradient(90deg, #00220a 0%, #018b13 100%);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.heading1{
+    background: linear-gradient(0deg, #ffffff 0%, #58ff60 100%);
+    border: 1px solid #14cf2d;
+    border-radius: 14px;
+    margin-bottom: 40px;
+    padding: 7px;
+    padding-top: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    color: #000000;
+    margin: 0 0 20px;
+    text-align: center;
+}
+
+.document-list {
+    background: rgb(213, 248, 213);
+    padding: 20px;
+    border: 1px solid #14cf2d;
+    border-radius: 14px;
+    margin-bottom: 20px;
+}
+
+.document-info {
+    padding: 10px 0;
+    border-bottom: 3px solid #14cf2d;
+    gap: 100;
+}
+
+.document-info p {
+    margin: 0;
+    color: #000000;
+    font-weight: bold;
+}
+
+.document-info img {
+    width: 50%;/* Adjust the max-width as needed */
+    padding-top: 10px;
+    border-radius: 17px;
+}

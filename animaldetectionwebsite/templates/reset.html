@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+{% if msg %}
+<script>
+    window.alert('{{ msg }}');
+</script>
+{% endif %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Reset Your Password</h1>
+        <form action="/reset/" method="POST">
+            {% csrf_token %}
+            <input type="email" name="email" id="email" placeholder="Enter Your Email" required>
+            <input type="submit" value="Send Reset Link">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Page</title>
+    <style>
+        body {
+            background: linear-gradient(90deg, #00220a 0%, #018b13 100%);
+            font-family: cursive;
+            color: #000000;
+            height: 500px;
+            margin: auto;
+        }
+        .container {
+            max-width: 300px;
+            margin-top: 60px;
+            margin-left: 450px;
+            padding: 40px;
+            padding-left: 25px;
+            padding-bottom: 20px;
+            background: linear-gradient(0deg, #ffffff 50%, #b6ffbd 100%);
+            border-radius: 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #000000;
+            font-size: 28px;
+            margin-bottom: 14px;
+            margin-top: 1px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #000000;
+            font-size: 14px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            height: 30px;
+            padding: 8px;
+            border: 1px solid #f3f3f3;
+            border-radius: 15px;
+            font-size: 14px;
+            font-family: cursive;
+            color: #000000;
+            background-color: rgb(224, 224, 224);
+            outline: none;
+        }
+        input[type="submit"],
+        button {
+            width: 100%;
+            height: 40px;
+            margin-top: 20px;
+            background-color: #14cf2d;
+            color: #000000;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: cursive;
+        }
+        .sign-in {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .sign-in a {
+            color: #14cf2d;
+            text-decoration: none;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Station Master Registration</h1>
+        {% if messages %}
+            <script>
+                {% for message in messages %}
+                    alert('{{ message }}');
+                {% endfor %}
+            </script>
+        {% endif %}
+        <form action="{% url 'animaldetection:signup' %}" method="post" onsubmit="return validateForm()">
+            {% csrf_token %}
+            <label for="Username">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <label for="Email">Email</label>
+            <input type="email" id="Email" name="email" placeholder="Your Email Id" required>
+
+            <label for="Password">Password</label>
+            <input type="password" id="Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}" placeholder="Your Password" title="Password must be at least 8 characters, with one uppercase letter, one number, and one special character" required>
+
+            <input type="submit" value="Register">
+
+            <div class="sign-in">
+                <p>Already have an account? <a href="{% url 'animaldetection:signin' %}">Login</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

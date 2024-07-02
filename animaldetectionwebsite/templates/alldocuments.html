@@ -1,0 +1,40 @@
+<!-- display_all_documents.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Second Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/alldocuments.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="heading1">
+            <h1>ALL TIME DETECTED ANIMAL DETAILS</h1>
+        </div>
+        <div class="document-list">
+            
+            {% if documents %}
+                {% for document in documents %}
+                    {% if document.documentno == "first" %}
+                        <div class="document-info">
+                            <p>Area-Name:  {{ document.area_name }}</p>
+                            <p>Animal-Name:  {{ document.animal_name }}</p>
+                            <p>Confidence:  {{ document.confidence }}</p>
+                            <p>Detected-DateTime:  {{ document.time }}</p>
+                            {% if document.animal_image %}
+                                {% with document.animal_image|safe as image_data %}
+                                    <img src="data:image/jpeg;base64,{{ image_data }}" alt="Detected Animal Image">
+                                {% endwith %}
+                            {% else %}
+                                <p>No image available</p>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <p>No documents available.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
